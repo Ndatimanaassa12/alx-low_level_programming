@@ -1,38 +1,51 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * @s1: input one to concat
- * @s2: input two to concat
- * Return: concat of c1 and c2
+ * str_concat - concatenate two strings
+ * @p1: a pointer to the first
+ * @p2: a pointer to the second
+ * Return: NULL if memory allocation fails
+ * otherwise a pointer to a the new string
  */
-char *str_concat(char *c1, char *c2)
+char *str_concat(char *p1, char *p2)
 {
-	char *conct;
-	int i, ci;
+	unsigned int le1 = 0;
+	unsigned int le2 = 0;
+	char *cat;
 
-	if (c1 == NULL)
-		s1 = "";
-	if (c2 == NULL)
-		c2 = "";
-		i = ci = 0;
-	while (c1[i] != '\0')
-		i++;
-	while (c2[ci] != '\0')
-		ci++;
-	conct = malloc(sizeof(char) * (i + ci + 1));
-	if (conct == NULL)
+	if (p1)
+	{
+		while (p1[le1])
+			++le1;
+	}
+	else
+	{
+		p1 = "";
+	}
+	if (p2)
+	{
+		while (p2[le2])
+			++le2;
+	}
+	else
+	{
+		p2 = "";
+	}
+
+	cat = (char *) malloc(sizeof(char) * (le1 + le2 + 1));
+
+	if (!cat)
 		return (NULL);
-	i = ci = 0;
-	while (c1[i] != '\0')
+	if (p1)
 	{
-		conct[i] = c1[i];
-		i++;
+		for (le1 = 0; p1[le1]; ++le1)
+			cat[le1] = p1[le1];
 	}
-	while (c2[ci] != '\0')
+	if (p2)
 	{
-		conct[i] = c2[ci];
-		i++, ci++;
+		for (le2 = 0; p2[le2]; ++le2)
+			cat[le1 + le2] = p2[le2];
 	}
-	conct[i] = '\0';
-	return (conct);
+	cat[le1 + le2] = '\0';
+	return (cat);
 }

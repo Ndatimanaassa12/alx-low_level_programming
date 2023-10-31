@@ -2,24 +2,30 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * _strdup - duplicate to new memory
- * @str:
- * Return: 0
+ * _strdup - create a new array containing a copy of the given string
+ * @str: a pointer to the string to copy
+ * Return: NULL if string is NULL
+ * or when it
+ * otherwise a return a pointer to the new cp
  */
 char *_strdup(char *str)
 {
-	char *abb;
-	int i, r = 0;
+	char *a;
+	unsigned int size = 0;
 
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	abb = malloc(sizeof(char) * (i + 1));
-	if (abb == NULL)
-		return (NULL);
-	for (r = 0; str[r]; r++)
-		abb[r] = str[r];
-	return (abb);
+	if (str)
+	{
+		while (str[size++])
+			;
+
+		a = malloc(sizeof(char) * size);
+		if (a)
+		{
+			while (size--)
+				a[size] = str[size];
+
+			return (a);
+		}
+	}
+	return (NULL);
 }
