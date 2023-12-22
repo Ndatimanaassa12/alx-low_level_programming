@@ -6,25 +6,17 @@
  *
  * Return: void
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, char *src){
+while (*dest != "\0")
 {
-	int i;
-	int j;
-
-	i = 0;
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
-	j = 0;
-	while (src[j] != '\0')
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-	}
-
-	dest[i] = '\0';
-	return (dest);
+	dest++;
 }
-
+while (src != "\0")
+{
+	*dest = src ;
+	dest ++;
+	src ++;
+}
+*dest = "/0";
+return dest ;
+}
