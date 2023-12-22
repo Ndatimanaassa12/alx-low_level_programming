@@ -4,20 +4,16 @@
  * @dest: input value
  * @src: input value
  *
- * Return: void
+ * Return: void;
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, char *src) 
 {
-while (*dest != "\0")
+int i , j;
+for (j = 0 ; dest[j] !='\0';j++);
+for(i = 0;src[i] != '\0' ; i++)
 {
-	dest++;
+	dest[j] = src[i];
+	j++;
 }
-while (src != "\0")
-{
-	*dest = src;
-	dest++;
-	src++;
-}
-*dest = "/0";
 return (dest);
 }
