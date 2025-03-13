@@ -18,10 +18,10 @@ int main(void)
 	/* your code goes there */
 	temp = n % 10;
 	if (temp > 5)
-		printf("Last digit of %d is %d and is greater than 5", n, temp);
+		printf("Last digit of %d is %d and is greater than 5\n", n, temp);
 	else if (temp < 6 && temp != 0)
-		printf("Last digit of %d is %d and is less than 6 and not 0", n, temp);
+		printf("Last digit of %d is %d and is less than 6 and not \n0", n, temp);
 	else
-		printf("Last digit of %d is %d and is 0", n, temp);
+		printf("Last digit of %d is %d and is 0\n", n, temp);
 	return (0);
 }
