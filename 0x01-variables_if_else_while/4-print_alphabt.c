@@ -19,3 +19,4 @@ while(a <= 122)
         putchar('\n');
         a=a+1;
 }
+}
